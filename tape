@@ -12,8 +12,14 @@ from twisted.application import internet
 from twisted.internet import reactor
 from twisted.python import log
 from twisted.web import server, static, proxy
-from twisted.web.error import NoResource
+
+try:
+    from twisted.web.error import NoResource
+except ImportError:
+    from twisted.web.error import Error as NoResource
+
 from twisted.web.util import redirectTo
+
 
 
 VERSION = '1.0'
